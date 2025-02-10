@@ -30,7 +30,16 @@
     {
         Console.Clear();
 
-        int a = 1, b = 2;
+        Timing timecouter = new Timing();
+        timecouter.startTime();
+        int ntimes = 10000000;
+        for(int i=0; i<ntimes; i++){
+            Sum<int[]>(new int[]{1, 2, 3}, new int[]{4, 5, 6});
+        }
+        timecouter.StopTime();
+        Console.WriteLine("Time: {0}ms", timecouter.Result().TotalMilliseconds/ntimes);
+
+        /*int a = 1, b = 2;
         Console.WriteLine($"{a}+{b}={Sum<int>(a, b)}");
 
         string s1 = "Hello", s2 = "World";
@@ -38,6 +47,7 @@
 
         int[] arr1 = {1, 2, 3}, arr2 = {4, 5, 6};
         Console.WriteLine($"[{string.Join(", ", arr1)}]+[{string.Join(", ", arr2)}]=[{string.Join(", ", Sum<int[]>(arr1, arr2))}]");
+        */
 
         /*int a = 1, b = 2;
         Swap<int>(ref a, ref b);
